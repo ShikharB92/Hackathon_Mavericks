@@ -13,15 +13,12 @@ app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 app.post('/webhook', (req, res) => {  
  
   let body = req.body;
-  console.log("ID: "+ req.body);
-  console.log("ID: "+ entry.messaging[0].sender.id);
-
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
 
     // Iterates over each entry - there may be multiple if batched
     body.entry.forEach(function(entry) {
-
+      console.log("Inside for Each");
       // Gets the message. entry.messaging is an array, but 
       // will only ever contain one message, so we get index 0
       let webhookEvent = entry.messaging[0];
