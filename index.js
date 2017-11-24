@@ -16,32 +16,6 @@ app.post('/webhook', (req, res) => {
 
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
-
-    // Iterates over each entry - there may be multiple if batched
-    body.entry.forEach(function(entry) {
-
-      // Gets the message. entry.messaging is an array, but 
-      // will only ever contain one message, so we get index 0
-      let webhookEvent = entry.messaging[0];
-      console.log(webhookEvent);      
-    });
-var request = require("request"); 
-var options = { method: 'POST',
-  url: 'https://graph.facebook.com/v2.6/me/messages',
-  qs: { access_token: 'EAAEmDGbpWNkBAAzEepODbNZCkrGOrUct38UgOoldFewKKh3APs3ifLmFpZA7xzoQZBhsTZARcPq3mGN3xf5dJiaigA8ZAeOjsuEwy6eYKPUyzTo06yqM7Qao7fPWOJv94L2XOsM0PoFiokBv5CzYXgBfxodwDS0aT2i9f3GbpXCyysdxsorMjcPpZCvudvEccZD' },
-  headers: 
-   { 'postman-token': 'eca1db56-5f1a-f6f2-e11c-4cb4fe567c35',
-     'cache-control': 'no-cache',
-     'content-type': 'application/json' },
-  body: 
-   { messaging_type: 'RESPONSE',
-     recipient: { id: '1717897904948956' },
-     message: { text: 'Hey! We see that you have not checked-in yet and its almost time for check-in to close. Do you need a re-schedule?' } },
-  json: true };
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-  console.log(body);
-});
     // Returns a '200 OK' response to all requests
     res.status(200).send('EVENT_RECEIVED');
   } else {
