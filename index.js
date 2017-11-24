@@ -23,27 +23,7 @@ app.post('/webhook', (req, res) => {
       // will only ever contain one message, so we get index 0
       let webhookEvent = entry.messaging[0];
       console.log(webhookEvent);
-      var request = require("request");
-
-var options = { method: 'POST',
-  url: 'https://graph.facebook.com/v2.6/me/messages',
-  qs: { access_token: 'EAAEmDGbpWNkBAAzEepODbNZCkrGOrUct38UgOoldFewKKh3APs3ifLmFpZA7xzoQZBhsTZARcPq3mGN3xf5dJiaigA8ZAeOjsuEwy6eYKPUyzTo06yqM7Qao7fPWOJv94L2XOsM0PoFiokBv5CzYXgBfxodwDS0aT2i9f3GbpXCyysdxsorMjcPpZCvudvEccZD' },
-  headers: 
-   { 'postman-token': 'eca1db56-5f1a-f6f2-e11c-4cb4fe567c35',
-     'cache-control': 'no-cache',
-     'content-type': 'application/json' },
-  body: 
-   { messaging_type: 'RESPONSE',
-     recipient: { id: '1717897904948956' },
-     message: { text: 'hello, world!' } },
-  json: true };
-
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-
-  console.log(body);
-});
-     
+      var request = require("request");  
     });
 
     // Returns a '200 OK' response to all requests
