@@ -23,7 +23,6 @@ app.post('/webhook', (req, res) => {
       // will only ever contain one message, so we get index 0
       let webhookEvent = entry.messaging[0];
       console.log(webhookEvent);
-      var request = require("request");  
     });
 
     // Returns a '200 OK' response to all requests
